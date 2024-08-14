@@ -40,9 +40,13 @@
 
 
 ## Contribution
-<img src="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/snake.svg" alt="Snake animation" />
-
-###
+<div align="center">
+  <h2>🐍 My Contributions 🐍</h2>
+  <br>
+  <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/salesp07/salesp07/output/github-contribution-grid-snake.svg" />
+  
+  <br/><br/><br/>
+</div>
 
 ## 📊 GitHub Stats
 ![](https://github-readme-stats.vercel.app/api?username=Srihari-Prasath&theme=dark&hide_border=false&include_all_commits=true&count_private=true)<br/>
