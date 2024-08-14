@@ -1,9 +1,3 @@
-<p align="center">
-    <img src="https://img.shields.io/badge/Hi%20There%20!%20👋%20I'm%20Hari%21%20Chief%20Developer!-brightgreen" alt="Greeting Badge">
-</p>
-
-
-
 
 
 # 💫 About Me
