@@ -1,3 +1,9 @@
+<h1 align="center">
+    <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There!+👋;+I'm+Hari!;+ Chief + developer!;" />
+</h1>
+
+
+
 # 💫 About Me
 - **Name:** Hari 🌟
 - **Profession:** Tech Enthusiast & Developer 💻
@@ -39,7 +45,7 @@
 ![Arduino](https://img.shields.io/badge/-Arduino-00979D?style=flat&logo=Arduino&logoColor=white)
 
 
-## Contribution
+
 <div align="center">
   <h2>🐍 My Contributions 🐍</h2>
   <br>
