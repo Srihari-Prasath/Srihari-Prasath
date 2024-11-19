@@ -44,9 +44,9 @@
 
 
 ## 📊 GitHub Stats
-![](https://github-readme-stats.vercel.app/api?username=Srihari-Prasath&theme=dark&hide_border=false&include_all_commits=true&count_private=true)<br/>
+![](https://github-readme-stats.vercel.app/api?username=Srihari-Prasath&theme=transparent&hide_border=true&include_all_commits=true&count_private=true)<br/>
 [![GitHub Streak](https://streak-stats.demolab.com?user=Srihari-Prasath&theme=transparent&hide_border=true)](https://git.io/streak-stats)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Srihari-Prasath&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=Srihari-Prasath&theme=transparent&hide_border=true&include_all_commits=true&count_private=true&layout=compact)
 
 ## 🏆 GitHub Trophies
 ![](https://github-profile-trophy.vercel.app/?username=Srihari-Prasath&theme=radical&no-frame=false&no-bg=false&margin-w=4)
