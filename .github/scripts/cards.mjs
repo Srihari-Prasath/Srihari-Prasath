@@ -77,6 +77,10 @@ async function collect(token) {
     }
   }
 
+  const days = cc.contributionCalendar.weeks.flatMap((w) =>
+    w.contributionDays.map((d) => ({ date: d.date, count: d.contributionCount })));
+  attachCommits(days, await commitEntries(token, days));
+
   return {
     name: user.name || LOGIN,
     createdAt: user.createdAt,
@@ -88,16 +92,75 @@ async function collect(token) {
     commits12: cc.totalCommitContributions,
     prs12: cc.totalPullRequestContributions + cc.totalPullRequestReviewContributions,
     languages: [...langs.values()],
-    days: cc.contributionCalendar.weeks.flatMap((w) =>
-      w.contributionDays.map((d) => ({ date: d.date, count: d.contributionCount }))),
+    days,
     updatedAt: new Date().toISOString(),
   };
 }
 
+// Commits per repo per day, for the 3D graph's tooltips. The API lists at most 100 days per repo
+// in one window, so the calendar range is split into 90-day windows (one request, via aliases).
+async function commitEntries(token, days) {
+  const last = new Date(`${days.at(-1).date}T23:59:59Z`);
+  const windows = [];
+  for (let from = new Date(`${days[0].date}T00:00:00Z`); from <= last;) {
+    const to = new Date(Math.min(from.getTime() + 90 * 864e5 - 1000, last.getTime()));
+    windows.push([from, to]);
+    from = new Date(to.getTime() + 1000);
+  }
+  const fields = windows.map(([f, t], i) => `w${i}: contributionsCollection(from: "${f.toISOString()}", to: "${t.toISOString()}") {
+    commitContributionsByRepository(maxRepositories: 100) {
+      repository { name isPrivate }
+      contributions(first: 100) { nodes { occurredAt commitCount } }
+    }
+  }`).join('\n');
+  const user = (await gql(token, `query($login: String!) { user(login: $login) { ${fields} } }`, { login: LOGIN })).user;
+
+  const entries = [];
+  windows.forEach((_, i) => {
+    for (const r of user[`w${i}`].commitContributionsByRepository) {
+      const repo = r.repository.isPrivate ? 'a private repo' : r.repository.name;
+      for (const n of r.contributions.nodes) entries.push({ at: n.occurredAt, repo, commits: n.commitCount });
+    }
+  });
+  return entries;
+}
+
+// occurredAt is a timestamp; which calendar day it belongs to depends on the time zone the
+// calendar was built in. Try the likely ones and keep the one that agrees with the calendar
+// (a day can't have more commits than contributions). If none agrees, skip the breakdown.
+function attachCommits(days, entries) {
+  const byDate = new Map(days.map((d) => [d.date, d]));
+  const dayIn = (at, zone) => new Date(at).toLocaleDateString('en-CA', { timeZone: zone });
+  let best = null;
+  for (const zone of ['UTC', 'Asia/Kolkata', 'America/Los_Angeles']) {
+    const sums = new Map();
+    let misses = 0;
+    for (const e of entries) {
+      const date = dayIn(e.at, zone);
+      if (!byDate.has(date)) { misses++; continue; }
+      sums.set(date, (sums.get(date) ?? 0) + e.commits);
+    }
+    for (const [date, total] of sums) if (total > byDate.get(date).count) misses++;
+    if (!best || misses < best.misses) best = { zone, misses };
+    if (misses === 0) break;
+  }
+  if (!best || best.misses > 0) {
+    if (entries.length) console.warn('commit days do not line up with the calendar; tooltips show totals only');
+    return;
+  }
+  for (const e of entries) {
+    const d = byDate.get(dayIn(e.at, best.zone));
+    const list = (d.repos ??= []);
+    const hit = list.find((r) => r.repo === e.repo);
+    if (hit) hit.commits += e.commits; else list.push({ repo: e.repo, commits: e.commits });
+  }
+  for (const d of days) d.repos?.sort((a, b) => b.commits - a.commits);
+}
+
 // ---------------------------------------------------------------- 3D graph labels
-// README images can't react to hover, but when someone clicks the 3D graph GitHub opens the
-// SVG on its own, and there each block's <title> shows as a tooltip. The graph draws one block
-// per calendar day in the same order as the API's calendar, so the Nth block is the Nth day.
+// README images can't react to hover, so the README links the 3D graph to its own file: opened
+// that way, each block's <title> shows as a tooltip. The graph draws one block per calendar day
+// in the same order as the API's calendar, so the Nth block is the Nth day.
 
 const BLOCK = /<g transform="translate\([^)]*\)">(?=(?:<animateTransform[^>]*><\/animateTransform>)?<rect[^>]*class="cont-top-\d")/g;
 const LABEL_COLOR = { light: '#656d76', dark: '#8b949e' };
@@ -105,6 +168,19 @@ const LABEL_COLOR = { light: '#656d76', dark: '#8b949e' };
 const dayLabel = (iso) => new Date(`${iso}T00:00:00Z`)
   .toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 const countLabel = (n) => n === 0 ? 'no contributions' : n === 1 ? '1 contribution' : `${num(n)} contributions`;
+const plural = (n, word) => `${num(n)} ${word}${n === 1 ? '' : 's'}`;
+
+// Several lines; browsers show the line breaks in the tooltip.
+function tooltip(d) {
+  const lines = [dayLabel(d.date), countLabel(d.count)];
+  const repos = d.repos ?? [];
+  for (const r of repos.slice(0, 5)) lines.push(`${plural(r.commits, 'commit')} · ${r.repo}`);
+  if (repos.length > 5) lines.push(`${plural(repos.slice(5).reduce((s, r) => s + r.commits, 0), 'commit')} in ${repos.length - 5} more repos`);
+  const commits = repos.reduce((s, r) => s + r.commits, 0);
+  const other = d.count - commits;
+  if (repos.length && other > 0) lines.push(`${plural(other, 'other contribution')} (PRs, issues, reviews or private work)`);
+  return lines.join('\n');
+}
 
 async function label3d(dir, days) {
   if (!days?.length) return;
@@ -122,7 +198,7 @@ async function label3d(dir, days) {
     let i = 0;
     svg = svg.replace(BLOCK, (g) => {
       const d = days[i++];
-      return `${g}<title>${esc(`${dayLabel(d.date)} · ${countLabel(d.count)}`)}</title>`;
+      return `${g}<title>${esc(tooltip(d))}</title>`;
     });
     if (best.count > 0) {
       const note = `Busiest day: ${dayLabel(best.date)} · ${countLabel(best.count)}`;
@@ -270,6 +346,7 @@ const sample = arg('--data');
 let data;
 if (sample) {
   data = JSON.parse(await readFile(sample, 'utf8'));
+  if (data.entries) attachCommits(data.days, data.entries); // raw API entries in a sample file
 } else {
   const token = process.env.GITHUB_TOKEN;
   if (!token) throw new Error('Set GITHUB_TOKEN (the workflow passes it in).');

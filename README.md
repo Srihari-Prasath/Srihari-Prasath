@@ -39,11 +39,13 @@ I like hackathons, and won Smart India Hackathon 2023.
 
 ### Contributions
 
+<a href="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/3d-dark.svg" title="Open the 3D graph; hover any block for that day's details">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/3d-dark.svg">
   <img src="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/3d-light.svg" alt="My contribution calendar as a 3D graph" width="100%">
 </picture>
-<sub>Click the graph, then hover any block to see that day's contributions.</sub>
+</a>
+<sub>Click the graph to open it, then hover any block to see that day's commits and contributions.</sub>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/snake-dark.svg">
