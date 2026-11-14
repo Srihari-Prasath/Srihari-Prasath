@@ -50,7 +50,7 @@ const MAIN = `query($login: String!) {
     contributionsCollection {
       contributionYears
       totalCommitContributions totalPullRequestContributions totalPullRequestReviewContributions
-      contributionCalendar { totalContributions }
+      contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } }
     }
   }
 }`;
@@ -88,8 +88,49 @@ async function collect(token) {
     commits12: cc.totalCommitContributions,
     prs12: cc.totalPullRequestContributions + cc.totalPullRequestReviewContributions,
     languages: [...langs.values()],
+    days: cc.contributionCalendar.weeks.flatMap((w) =>
+      w.contributionDays.map((d) => ({ date: d.date, count: d.contributionCount }))),
     updatedAt: new Date().toISOString(),
   };
+}
+
+// ---------------------------------------------------------------- 3D graph labels
+// README images can't react to hover, but when someone clicks the 3D graph GitHub opens the
+// SVG on its own, and there each block's <title> shows as a tooltip. The graph draws one block
+// per calendar day in the same order as the API's calendar, so the Nth block is the Nth day.
+
+const BLOCK = /<g transform="translate\([^)]*\)">(?=(?:<animateTransform[^>]*><\/animateTransform>)?<rect[^>]*class="cont-top-\d")/g;
+const LABEL_COLOR = { light: '#656d76', dark: '#8b949e' };
+
+const dayLabel = (iso) => new Date(`${iso}T00:00:00Z`)
+  .toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+const countLabel = (n) => n === 0 ? 'no contributions' : n === 1 ? '1 contribution' : `${num(n)} contributions`;
+
+async function label3d(dir, days) {
+  if (!days?.length) return;
+  const best = days.reduce((a, b) => (b.count > a.count ? b : a));
+  for (const name of Object.keys(THEMES)) {
+    const file = join(dir, `3d-${name}.svg`);
+    let svg;
+    try { svg = await readFile(file, 'utf8'); } catch { continue; } // graph not drawn (local preview)
+
+    const blocks = svg.match(BLOCK)?.length ?? 0;
+    if (blocks !== days.length) {
+      console.warn(`3d-${name}.svg has ${blocks} blocks for ${days.length} days; leaving it unlabelled`);
+      continue;
+    }
+    let i = 0;
+    svg = svg.replace(BLOCK, (g) => {
+      const d = days[i++];
+      return `${g}<title>${esc(`${dayLabel(d.date)} · ${countLabel(d.count)}`)}</title>`;
+    });
+    if (best.count > 0) {
+      const note = `Busiest day: ${dayLabel(best.date)} · ${countLabel(best.count)}`;
+      svg = svg.replace(/<\/svg>\s*$/, `<text x="24" y="34" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="15" fill="${LABEL_COLOR[name]}">${esc(note)}</text></svg>\n`);
+    }
+    await writeFile(file, svg);
+    console.log(`labelled ${blocks} days in 3d-${name}.svg`);
+  }
 }
 
 // ---------------------------------------------------------------- drawing helpers
@@ -241,4 +282,5 @@ for (const [name, t] of Object.entries(THEMES)) {
   await writeFile(join(out, `languages-${name}.svg`), languagesCard(data, t));
   await writeFile(join(out, `trophies-${name}.svg`), trophiesCard(data, t));
 }
+await label3d(out, data.days);
 console.log(`cards written to ${out}/ for ${data.name}`);

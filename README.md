@@ -16,8 +16,9 @@ I like hackathons, and won Smart India Hackathon 2023.
 ### Stack
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=kotlin,androidstudio,swift,flutter,dart,cs,dotnet,react,ts,js,vite,nodejs,mysql,mongodb,firebase,py,tensorflow,git&perline=9&theme=dark">
-  <img src="https://skillicons.dev/icons?i=kotlin,androidstudio,swift,flutter,dart,cs,dotnet,react,ts,js,vite,nodejs,mysql,mongodb,firebase,py,tensorflow,git&perline=9&theme=light" alt="Kotlin, Android Studio, Swift, Flutter, Dart, C#, .NET, React, TypeScript, JavaScript, Vite, Node.js, MySQL, MongoDB, Firebase, Python, TensorFlow, Git" height="96">
+  <!-- commas are written as %2C: srcset treats a bare comma as the start of another image -->
+  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=kotlin%2Candroidstudio%2Cswift%2Cflutter%2Cdart%2Ccs%2Cdotnet%2Creact%2Cts%2Cjs%2Cvite%2Cnodejs%2Cmysql%2Cmongodb%2Cfirebase%2Cpy%2Ctensorflow%2Cgit&perline=9&theme=dark">
+  <img src="https://skillicons.dev/icons?i=kotlin%2Candroidstudio%2Cswift%2Cflutter%2Cdart%2Ccs%2Cdotnet%2Creact%2Cts%2Cjs%2Cvite%2Cnodejs%2Cmysql%2Cmongodb%2Cfirebase%2Cpy%2Ctensorflow%2Cgit&perline=9&theme=light" alt="Kotlin, Android Studio, Swift, Flutter, Dart, C#, .NET, React, TypeScript, JavaScript, Vite, Node.js, MySQL, MongoDB, Firebase, Python, TensorFlow, Git" height="96">
 </picture>
 
 ### Numbers
@@ -42,6 +43,7 @@ I like hackathons, and won Smart India Hackathon 2023.
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/3d-dark.svg">
   <img src="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/3d-light.svg" alt="My contribution calendar as a 3D graph" width="100%">
 </picture>
+<sub>Click the graph, then hover any block to see that day's contributions.</sub>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/snake-dark.svg">
