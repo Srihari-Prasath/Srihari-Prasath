@@ -1,0 +1,60 @@
+# Redraws the images on my profile once a day.
+# Everything it makes goes to the `output` branch; main and the README are never touched.
+# The `output` branch only holds generated SVGs, so each run replaces it with a fresh copy.
+name: Profile cards
+
+on:
+  schedule:
+    - cron: "30 21 * * *"   # 03:00 IST
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/**"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: false
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Contribution snake
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake-light.svg?color_snake=#5b5bd6&color_dots=#ebedf0,#c7c8f7,#9d9ef0,#6f70e0,#4b4cc4
+            dist/snake-dark.svg?color_snake=#a5a6ff&color_dots=#161b22,#2e2f6b,#4547a6,#6b6de0,#a5a6ff
+
+      - name: 3D contribution graph
+        uses: yoshi389111/github-profile-3d-contrib@v0.9.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+          SETTING_JSON: .github/profile-3d.json
+
+      - name: Stats, languages and trophies
+        # Add a PROFILE_TOKEN secret (read-only personal token) if private repos should count too.
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN || secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+        run: |
+          cp profile-3d-contrib/3d-light.svg profile-3d-contrib/3d-dark.svg dist/
+          node .github/scripts/cards.mjs --out dist
+
+      - name: Publish to the output branch
+        uses: crazy-max/ghaction-github-pages@v5
+        with:
+          target_branch: output
+          build_dir: dist
+          jekyll: false
+          commit_message: Redraw profile cards
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

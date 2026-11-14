@@ -1,62 +1,62 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+  <img src="assets/banner-light.svg" alt="Srihari Prasath: developer and cyber enthusiast from Tamil Nadu, India. Smart India Hackathon 2023 winner." width="100%">
+</picture>
 
+I build Android apps, backend APIs and web dashboards, mostly in Kotlin, C# and React.
+By day I'm a software developer at Atmytip Software Solutions in Pune; after hours I make small,
+privacy-first apps for myself. I'm into cybersecurity: I think about how an app could be attacked
+while I build it, and my own apps keep their secrets encrypted with the Android Keystore.
+I like hackathons, and won Smart India Hackathon 2023.
 
-# 💫 About Me
-- **Name:** Hari 🌟
-- **Profession:** Tech Enthusiast & Developer 💻
-- **Specialties:** AI 🤖, Web Development 💻, Sustainable Technologies 🌱, Software Development 💻
-- **Passion:** Creating impactful solutions and tackling complex challenges 🚀
-- **Goal:** Continuously learning and innovating 📚
-- **Connect:** Open to exploring new projects and opportunities 🤝
-- **Interested In:** Competing and developing through hackathons 🔥
+[Portfolio](https://srihari-prasath.vercel.app/) &nbsp;·&nbsp;
+[LinkedIn](https://linkedin.com/in/Srihari-prasath-athirajasekar) &nbsp;·&nbsp;
+[Instagram](https://instagram.com/mr_stoic_chad)
 
-## 🌐 Socials
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/mr_stoic_chad) 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/Srihari-prasath-athirajasekar)
+### Stack
 
-## 💻 Tech Stack
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=flat&logo=css3&logoColor=white) 
-![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=flat&logo=dart&logoColor=white) 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white) 
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E) 
-![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=flat&logo=php&logoColor=white) 
-![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=flat&logo=powershell&logoColor=white) 
-![Python](https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54) 
-![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=flat&logo=bootstrap&logoColor=white) 
-![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=flat&logo=Flutter&logoColor=white) 
-![Flask](https://img.shields.io/badge/flask-%23000.svg?style=flat&logo=flask&logoColor=white) 
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=flat&logo=express&logoColor=%2361DAFB) 
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=flat&logo=node.js&logoColor=white) 
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB) 
-![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB) 
-![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=flat&logo=mysql&logoColor=white) 
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=flat&logo=mongodb&logoColor=white) 
-![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=flat&logo=sqlite&logoColor=white) 
-![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=flat&logo=scikit-learn&logoColor=white) 
-![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=flat&logo=pandas&logoColor=white) 
-![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=flat&logo=TensorFlow&logoColor=white) 
-![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=flat&logo=numpy&logoColor=white) 
-![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=flat&logo=Matplotlib&logoColor=black) 
-![Keras](https://img.shields.io/badge/Keras-%23D00000.svg?style=flat&logo=Keras&logoColor=white) 
-![SciPy](https://img.shields.io/badge/SciPy-%230C55A5.svg?style=flat&logo=scipy&logoColor=white) 
-![Arduino](https://img.shields.io/badge/-Arduino-00979D?style=flat&logo=Arduino&logoColor=white)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=kotlin,androidstudio,swift,flutter,dart,cs,dotnet,react,ts,js,vite,nodejs,mysql,mongodb,firebase,py,tensorflow,git&perline=9&theme=dark">
+  <img src="https://skillicons.dev/icons?i=kotlin,androidstudio,swift,flutter,dart,cs,dotnet,react,ts,js,vite,nodejs,mysql,mongodb,firebase,py,tensorflow,git&perline=9&theme=light" alt="Kotlin, Android Studio, Swift, Flutter, Dart, C#, .NET, React, TypeScript, JavaScript, Vite, Node.js, MySQL, MongoDB, Firebase, Python, TensorFlow, Git" height="96">
+</picture>
 
+### Numbers
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/stats-dark.svg">
+  <img src="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/stats-light.svg" alt="GitHub stats" width="49%">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/languages-dark.svg">
+  <img src="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/languages-light.svg" alt="Most used languages" width="49%">
+</picture>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/trophies-dark.svg">
+  <img src="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/trophies-light.svg" alt="Trophies" width="100%">
+</picture>
 
-## 📊 GitHub Stats
-![](https://github-readme-stats.vercel.app/api?username=Srihari-Prasath&theme=transparent&hide_border=true&include_all_commits=true&count_private=true)<br/>
-[![GitHub Streak](https://streak-stats.demolab.com?user=Srihari-Prasath&theme=transparent&hide_border=true)](https://git.io/streak-stats)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Srihari-Prasath&theme=transparent&hide_border=true&include_all_commits=true&count_private=true&layout=compact)
+### Contributions
 
-## 🏆 GitHub Trophies
-![](https://github-profile-trophy.vercel.app/?username=Srihari-Prasath&theme=radical&no-frame=false&no-bg=false&margin-w=4)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/3d-dark.svg">
+  <img src="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/3d-light.svg" alt="My contribution calendar as a 3D graph" width="100%">
+</picture>
 
-### ✍️ Random Dev Quote
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/snake-dark.svg">
+  <img src="https://raw.githubusercontent.com/Srihari-Prasath/Srihari-Prasath/output/snake-light.svg" alt="A snake eating my contribution graph" width="100%">
+</picture>
 
-### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=Srihari-Prasath&limit=5&theme=dark&combine_all_yearly_contributions=true)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=Srihari-Prasath&border_radius=10&background=0D1117&border=30363D&stroke=21262D&ring=9B9CF9&fire=9B9CF9&currStreakNum=E6EDF3&sideNums=E6EDF3&currStreakLabel=9B9CF9&sideLabels=8B949E&dates=8B949E">
+  <img src="https://streak-stats.demolab.com?user=Srihari-Prasath&border_radius=10&background=FFFFFF&border=D0D7DE&stroke=EAEEF2&ring=5B5BD6&fire=5B5BD6&currStreakNum=1F2328&sideNums=1F2328&currStreakLabel=5B5BD6&sideLabels=656D76&dates=656D76" alt="Contribution streak" width="49%">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=light" alt="A random dev quote" width="49%">
+</picture>
 
----
-[![](https://visitcount.itsvg.in/api?id=Srihari-Prasath&icon=6&color=0)](https://visitcount.itsvg.in)
-
+<sub>The cards above redraw every night through <a href=".github/workflows/profile.yml">a GitHub Action</a> in this repo.</sub>
+&nbsp;
+<img src="https://komarev.com/ghpvc/?username=Srihari-Prasath&label=profile%20views&color=5b5bd6&style=flat-square" alt="Profile views" align="right">
