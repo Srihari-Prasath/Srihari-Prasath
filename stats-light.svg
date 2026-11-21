@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="230" viewBox="0 0 480 230" role="img" aria-label="GitHub stats for Srihari Prasath">
+<title>GitHub stats for Srihari Prasath</title>
+<style>
+.sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif}
+.mono{font-family:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace}
+.in{animation:in .6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<rect x="0.5" y="0.5" width="479" height="229" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+<g class="sans"><text x="24" y="38" font-size="15" font-weight="600" fill="#1f2328">GitHub stats</text>
+<text x="456" y="38" text-anchor="end" class="mono" font-size="11" fill="#656d76">updated 21 Nov 2026</text>
+<line x1="24" y1="52" x2="456" y2="52" stroke="#eaeef2"/>
+<g class="in" style="animation-delay:0.00s">
+<text x="24" y="74" font-size="13" fill="#656d76">Contributions, last 12 months</text>
+<text x="456" y="74" text-anchor="end" class="mono" font-size="13" font-weight="600" fill="#1f2328">248</text>
+</g>
+<g class="in" style="animation-delay:0.05s">
+<text x="24" y="96" font-size="13" fill="#656d76">Contributions, all time</text>
+<text x="456" y="96" text-anchor="end" class="mono" font-size="13" font-weight="600" fill="#1f2328">730</text>
+</g>
+<g class="in" style="animation-delay:0.10s">
+<text x="24" y="118" font-size="13" fill="#656d76">Commits, last 12 months</text>
+<text x="456" y="118" text-anchor="end" class="mono" font-size="13" font-weight="600" fill="#1f2328">74</text>
+</g>
+<g class="in" style="animation-delay:0.15s">
+<text x="24" y="140" font-size="13" fill="#656d76">Pull requests and reviews, last 12 months</text>
+<text x="456" y="140" text-anchor="end" class="mono" font-size="13" font-weight="600" fill="#1f2328">0</text>
+</g>
+<g class="in" style="animation-delay:0.20s">
+<text x="24" y="162" font-size="13" fill="#656d76">Public repositories</text>
+<text x="456" y="162" text-anchor="end" class="mono" font-size="13" font-weight="600" fill="#1f2328">17</text>
+</g>
+<g class="in" style="animation-delay:0.25s">
+<text x="24" y="184" font-size="13" fill="#656d76">Stars earned  ·  followers</text>
+<text x="456" y="184" text-anchor="end" class="mono" font-size="13" font-weight="600" fill="#1f2328">0  ·  23</text>
+</g>
+<g class="in" style="animation-delay:0.30s">
+<text x="24" y="206" font-size="13" fill="#656d76">On GitHub since</text>
+<text x="456" y="206" text-anchor="end" class="mono" font-size="13" font-weight="600" fill="#1f2328">Aug 2022</text>
+</g></g>
+</svg>
